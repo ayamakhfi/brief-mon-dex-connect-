@@ -77,6 +77,10 @@ export async function recherchecréature(inputrech){
   messageerreur.textContent="";
   messageerreur.classList.remove("text-red-500");
 
+  // messageerreur.textContent="Chargement...";
+  // inputrech.disabled=true;
+
+
   const nomurl=`https://pokeapi.co/api/v2/pokemon/${name}`
   try{
       const respond= await fetch(nomurl);
@@ -107,6 +111,9 @@ export async function recherchecréature(inputrech){
    catch(error){
     console.error(error.message);
     messageerreur.textContent="pokémon introuvable";
+   }
+   finally{
+    inputrech.disabled=false;
    }
 }
 
