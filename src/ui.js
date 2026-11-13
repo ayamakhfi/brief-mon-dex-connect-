@@ -15,7 +15,7 @@ const grid=document.getElementById("grid");
       carte.innerHTML=` <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
                          <div class="flex-row justify-between">
                           <span class="absolute left-3 top-2 font-mono text-sm text-muted">${créature.id}</span>
-                          <button class="absolute right-3 top-2 font-mono text-xl text-muted ">☆</button>
+                          <button data-id=${créature.id} data-action="favori" class="absolute right-3 top-2 font-mono text-xl text-muted ">☆</button>
                           </div>
                          <img src="${créature.image}"  alt="${créature.name}"> 
           </div>
@@ -41,11 +41,12 @@ const grid=document.getElementById("grid");
 // ----------------------------------affichagetypes--------------------------------
 const filters=document.getElementById("filters");
 export function affichertype(list){
-filters.innerHTML="";
+filters.innerHTML=`<button type="button" class="chip bg-ink text-white border-ink shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus:outline-black">Favoris</button>
+<button type="button" class="chip bg-ink text-white border-ink shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus:outline-black">ALL</button>`;
 list.forEach(type=>{
 const zone=document.createElement("button");
 zone.className="chip bg-ink text-white border-ink shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus:outline-black";
-zone.innerHTML=`<button type="button">${type}</button>`;
+zone.innerHTML+=`<button type="button">${type}</button>`;
 
     filters.appendChild(zone);
 });
