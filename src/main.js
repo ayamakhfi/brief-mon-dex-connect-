@@ -1,5 +1,5 @@
 import { chargercréature } from "./services/api.js";
-import { affichercartes ,recherchefiltre } from "./ui.js";
+import { affichercartes ,recherchefiltre ,affichertype} from "./ui.js";
 
 const dataurl="https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
 
@@ -20,6 +20,9 @@ async function showcréature(){
         // ------------list des types---------------
           let res= await typelist(data);
           console.log (res);
+
+        //-----------affichertype--------
+         affichertype(res);
 
 
       
