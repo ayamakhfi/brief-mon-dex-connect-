@@ -65,6 +65,8 @@ const inputrech=document.getElementById("search");
 inputrech.addEventListener("input",()=>{
     console.log("rech");
     recherchecréature(inputrech);
-    
+
 
 })
+
+// ---------------------favoris------------------
