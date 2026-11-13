@@ -67,3 +67,24 @@ zone.innerHTML=`<button type="button">${type}</button>`;
 });
 
 } 
+
+
+
+// -----------------filter------------
+
+
+export function filtrer(list){
+  const buttons=filters.querySelectorAll(".chip");
+buttons.forEach(button=>{
+  button.addEventListener("click",()=>{
+   console.log("click");
+  const buttontype=button.textContent.trim();
+  console.log(buttontype);
+  const but= list.filter(créature=> créature.type.includes(buttontype));
+  
+  affichercartes(but);
+
+ });
+})
+}
+
