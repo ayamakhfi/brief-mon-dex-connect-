@@ -1,7 +1,7 @@
-import { chargercréature } from "./services/api.js";
+import { chargercréature ,recherchecréature } from "./services/api.js";
 import { affichercartes ,affichertype ,filtrer} from "./ui.js";
 
-const dataurl="https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
+// const dataurl="https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
 
 
 
@@ -60,3 +60,11 @@ return uniqueversion;
 
 
 
+// ----------recherche-----------
+const inputrech=document.getElementById("search");
+inputrech.addEventListener("input",()=>{
+    console.log("rech");
+    recherchecréature(inputrech);
+    
+
+})
