@@ -33,4 +33,37 @@ const grid=document.getElementById("grid");
       });
    }
 
-  
+    export function recherchefiltre(list){
+   const rech=document.getElementById("search");
+   const filt=document.getElementById("filters");
+   const buttons=filt.querySelectorAll(".chip");
+    let filtertype="Tous";
+      function searchtype(){
+     const text=rech.value.toLowerCase();
+     
+      const Result=list.filter((créature)=> créature.name.toLocaleLowerCase().includes(text)&& (filtertype==="Tous"||créature.type===filtertype));
+       affichercartes(Result);}
+
+   rech.addEventListener("input", searchtype);
+
+   buttons.forEach(button=>{
+      button.addEventListener("click",()=>{
+          filtertype=button.textContent.toLocaleLowerCase().trim();
+       searchtype();
+});
+   });
+ }
+
+// ----------------------------------affichagetypes--------------------------------
+const filters=document.getElementById("filters");
+export function affichertype(list){
+filters.innerHTML="";
+list.forEach(type=>{
+const zone=document.createElement("button");
+zone.className="chip bg-ink text-white border-ink shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus:outline-black";
+zone.innerHTML=`<button type="button">${type}</button>`;
+
+    filters.appendChild(zone);
+});
+
+} 
