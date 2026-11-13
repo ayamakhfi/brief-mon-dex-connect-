@@ -1,5 +1,5 @@
 import { chargercréature } from "./services/api.js";
-import { affichercartes ,recherchefiltre ,affichertype ,filtrer} from "./ui.js";
+import { affichercartes ,affichertype ,filtrer} from "./ui.js";
 
 const dataurl="https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
 
