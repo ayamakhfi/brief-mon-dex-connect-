@@ -33,26 +33,7 @@ const grid=document.getElementById("grid");
       });
    }
 
-    export function recherchefiltre(list){
-   const rech=document.getElementById("search");
-   const filt=document.getElementById("filters");
-   const buttons=filt.querySelectorAll(".chip");
-    let filtertype="Tous";
-      function searchtype(){
-     const text=rech.value.toLowerCase();
-     
-      const Result=list.filter((créature)=> créature.name.toLocaleLowerCase().includes(text)&& (filtertype==="Tous"||créature.type===filtertype));
-       affichercartes(Result);}
 
-   rech.addEventListener("input", searchtype);
-
-   buttons.forEach(button=>{
-      button.addEventListener("click",()=>{
-          filtertype=button.textContent.toLocaleLowerCase().trim();
-       searchtype();
-});
-   });
- }
 
 // ----------------------------------affichagetypes--------------------------------
 const filters=document.getElementById("filters");
@@ -88,3 +69,35 @@ buttons.forEach(button=>{
 })
 }
 
+
+// -------------------panneau des détail--------------------
+
+export function panneaudétail(créature){
+
+   document. getElementById("detail").classList.remove("hidden");
+   document.getElementById("détail-id").textContent=`${créature.id}.Détail`;
+   document.getElementById("détail-img").src=créature.image;
+   document.getElementById("détail-img").alt=créature.name;
+   document.getElementById("détail-name").textContent=créature.name;
+   document.getElementById("détail-type").textContent=créature.type;
+   document.getElementById("détail-descreption").textContent=créature.description;
+
+   const stats=[
+      { nom:"hp", valeur:créature.stats.hp},
+      {nom:"attack",valeur:créature.stats.attack},
+      {nom:"defence", valeur:créature.stats.defence}
+   ];
+
+   stats.forEach((stat)=>{
+      document.getElementById(`détail-${stat.nom}`).textContent=stat.valeur;
+
+      document.getElementById(`level-${stat.nom}`).style.width=`${Math.min(stat.valeur,100)}%`;
+   });
+    const detail=document.getElementById("detail");
+   const fermer=document.getElementById("Fermer");
+   fermer.addEventListener("click",()=>{
+     detail.classList.add("hidden");
+    });
+   
+
+   }
