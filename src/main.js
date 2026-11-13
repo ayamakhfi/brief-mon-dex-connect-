@@ -1,12 +1,12 @@
 import { chargercréature } from "./services/api.js";
-import { affichercartes ,recherchefiltre ,affichertype} from "./ui.js";
+import { affichercartes ,recherchefiltre ,affichertype ,filtrer} from "./ui.js";
 
 const dataurl="https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
 
 
 
 let offset=0;
-let créatures = []
+
 
 async function showcréature(){
     try{
@@ -23,7 +23,9 @@ async function showcréature(){
 
         //-----------affichertype--------
          affichertype(res);
-
+         
+         //----------filtrer les créature---------
+         filtrer(data);
 
       
     }
@@ -46,7 +48,7 @@ button.addEventListener("click",async()=>{
 
 
 // ---------------------------------------tout les types------------------------
-  async function typelist(list){
+   function typelist(list){
    
     const types=list.flatMap(array=>array.type);//map()return tableau of tableaus ,flatMap return un seultableau
 
