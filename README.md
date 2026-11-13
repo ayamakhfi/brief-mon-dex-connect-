@@ -1,8 +1,6 @@
 # Mon Dex — dépôt de départ
 
-Sprint 2 — Brief 1. Une page Tailwind **statique** à rendre interactive avec JavaScript, pour l'univers de votre choix : Pokémon, Digimon ou Yu-Gi-Oh!.
-
-Lisez le brief complet avant de commencer.
+Sprint 3 — Brief 1. Pokédex est une application web développée avec HTML, JavaScript et Tailwind CSS. Elle utilise l'API PokéAPI pour récupérer et afficher des Pokémon sous forme de cartes. L'application permet de consulter les détails des Pokémon, de rechercher par nom, de filtrer par type et de charger progressivement davantage de Pokémon grâce à la pagination. 
 
 ## Installation
 
@@ -31,16 +29,20 @@ Puis committez `dist/output.css` : GitHub Pages ne lance pas Tailwind pour vous.
 | `tailwind.config.js` | Le thème neutre à remplacer par celui de votre univers |
 | `src/input.css` | Les directives Tailwind et quelques classes de composants |
 | `dist/output.css` | Le CSS généré par Tailwind (ne pas modifier à la main) |
-| `data.js` | Le tableau `creatures`|
+| `src/main.js` |  Le point de départ : il écoute les clics et appelle les autres fichiers|
+| `src/ui.js` | Tout l'affichage : cartes, détail, états chargement, vide, erreur|
+| `src/service/api.js` | Tous les appels à l'API (fetch) et la transformation du JSON|
+
 | `script.js` | Votre JavaScript, avec la liste des fonctionnalités à coder |
 | `design/` | La maquette de la version finale |
 
-## À compléter par vous
+## 
 
 - **Univers choisi :** [Pokémon ]
-- **Lien GitHub Pages :** [https://ayamakhfi.github.io/Brief-1-Mon-Dex/]
+- **Lien GitHub Pages :** []
 
-
+## API utilisée:
+[https://pokeapi.co/api/v2/pokemon?limit=20&offset=0].
 
 
 ## Source 
@@ -102,3 +104,7 @@ Exemples de valeurs valides/invalides:
  console.log("Description",regexMessage.test("Créature de type feu."));//true
  console.log("Description",regexMessage.test("hello"));//false
  console.log("Description",regexMessage.test(""));//false
+
+
+
+
