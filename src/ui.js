@@ -15,7 +15,7 @@ const grid=document.getElementById("grid");
       carte.innerHTML=` <div class="relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
                          <div class="flex-row justify-between">
                           <span class="absolute left-3 top-2 font-mono text-sm text-muted">${créature.id}</span>
-                          <span class="absolute right-3 top-2 font-mono text-xl text-muted ">☆</span>
+                          <button class="absolute right-3 top-2 font-mono text-xl text-muted ">☆</button>
                           </div>
                          <img src="${créature.image}"  alt="${créature.name}"> 
           </div>
